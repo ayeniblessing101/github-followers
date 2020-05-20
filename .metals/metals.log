@@ -1,0 +1,7 @@
+2020.05.18 09:03:26 INFO  started: Metals version 0.9.0 in workspace 'C:\Users\ayeni\my-applications\angular-learning'
+2020.05.18 09:03:28 INFO  time: initialize in 2.06s
+2020.05.18 09:03:33 WARN  no build tool detected in workspace 'C:\Users\ayeni\my-applications\angular-learning'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+May 19, 2020 1:04:04 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+May 20, 2020 2:02:43 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification

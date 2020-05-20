@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-learning';
+  selectedFile: File = null;
+  selectFile(file) {
+    this.selectedFile =  file.target.files[0];
+  }
+  uploadImage() {
+    const fd = new FormData();
+
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+  }
 }

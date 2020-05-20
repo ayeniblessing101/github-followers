@@ -1,0 +1,38 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+  <div ngModelGroup="contacts" #contacts="ngModelGroup">
+    <div class="form-group">
+    <label for="firstName">firstName</label>
+    <input required minlength="3" maxlength="10" pattern="banana" ngModel name="firstName" id="firstName" #firstName="ngModel" (change)="log(firstName)" type="text" class="form-control">
+      <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+        <div *ngIf="firstName.errors.required">FirstName is Required</div>
+        <div *ngIf="firstName.errors.minlength">FirstName should be minimum {{firstName.errors.minlength.requiredLength}} character</div>
+      <div *ngIf="firstName.errors.pattern">Name does not match pattern</div>
+      </div> 
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="contactMethods">Contact Methods</label>
+    <select ngModel name="contactMethods" id="contactMethods" class="form-control">
+      <option value=""></option>
+      <option *ngFor="let method of contactMethods" [value]="method.id">{{method.name}}</option>
+    </select>
+  </div>
+  <div class="form-group" *ngIf="f.value.contactMethods==2">
+    <label for="firstName">Hidden</label>
+    <input ngModel name="hidden" id="firstName" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea required cols="30" rows="10" ngModel name="comment" id="comment" #comment="ngModel" class="form-control"></textarea>
+    <div class="alert alert-danger" *ngIf="comment.touched && !comment.valid">Your comment is required</div>
+  </div>
+  <div class="radio" *ngFor="let aas of contactMethods">
+    <label>
+      <input ngModel name="a" type="radio" [value]="aas.id">
+      {{ aas.name}}
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <br/>
+  {{ f.value | json }}
+</form>

@@ -1,0 +1,17 @@
+<h1>My Followers</h1>
+
+<div class="media" *ngFor="let follower of allFollowers">
+    <div class="media-left">
+        <a href="#">
+            <img class="mr-3" [src]="follower.avatar_url" alt="Generic placeholder image">
+        </a>
+    </div>
+    <div class="media-body">
+        <h4>
+            <a [routerLink]="['/followers', follower.id, follower.login]" [queryParams]="{ page: 1, order: 'newest'}">
+                {{follower.login}}
+            </a>
+        </h4>
+        <a routerLink="follower.html_url">{{follower.html_url}}</a>
+    </div>
+</div>
